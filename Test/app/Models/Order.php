@@ -3,25 +3,13 @@ namespace App\Models;
 
 class Order
 {
-	/**
-	* Amount
-	* @var int
-	*/
 
 	public $amount = 0;
 
-	/**
-	* Payment gateway dependency
-	* @var PaymentGateway
-	*/
+	
 	protected $gateway;
 
 
-	/**
-	* Constructor
-	*
-	* @return void
-	*/
 
 	public function __construct(PaymentGateway $gateway) 
 	{
@@ -29,11 +17,7 @@ class Order
 
 	}
 
-	/**
-	* Process the order
-	*
-	* @return boolean
-	*/
+	
 	public function process()
 	{
 		return $this->gateway->charge($this->amount);
